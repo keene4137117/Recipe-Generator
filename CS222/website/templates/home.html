@@ -1,0 +1,42 @@
+<!--place holder home page-->
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<script>
+function recipegen() {
+    var text1 = document.getElementById('text1').value;
+    var text2 = document.getElementById('text2').value;
+    var text3 = document.getElementById('text3').value;
+
+    fetch('/recipe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text1: text1, text2: text2, text3: text3 })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('recipeResult').innerText = data.result;
+    })
+    .catch(error => console.error('Error:', error));
+}
+</script>
+
+
+<h1>This is the home page</h1>
+<!--place holders to test handling post request integration-->
+<div class="form-group">
+    <label> ingredient 1 </label>
+    <input type="text" class = "form-control" id = "text1" name = "ing1" placeholder="Enter ingredient"/>
+    <label> ingredient 2 </label>
+    <input type="text" class = "form-control" id = "text2" name = "ing2" placeholder="Enter ingredient"/>
+    <label> ingredient 3 </label>
+    <input type="text" class = "form-control" id = "text3" name = "ing3" placeholder="Enter ingredient"/>
+    <div>
+    </div>
+    <button id="clicked" class="btn btn-primary" onclick="recipegen()">generate recipe</button>
+    <div id="recipeResult"></div>
+</div>
+<div id="recipe-output"></div>
+{% endblock %}
