@@ -14,6 +14,10 @@ For more details, view the full project proposal [here](https://docs.google.com/
 ## Introduction
 This application enables users to generate recipes based on specified ingredients. The frontend is developed with React.js, Tailwind CSS, and Material UI, ensuring a seamless and responsive user experience. The backend uses Flask and the OpenAI API for dynamic recipe generation.
 
+## Demo 
+
+[![Video Demo](https://i.vimeocdn.com/video/1880543124-99004a9214dd4e5207747e5b0588b7e17b4a4c4f723c20e371c20283e6c77e39-d_295x166)](https://vimeo.com/967466173?share=copy)
+
 ## Technical Architecture
 
 ![Technical Architecture](image.png)
